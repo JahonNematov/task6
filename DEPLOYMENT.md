@@ -64,14 +64,37 @@ Batafsil deployment qo'llanmasi - Render.com va Netlify uchun.
 
 ### 2. Database Initialize qilish
 
-Backend deploy bo'lgandan so'ng:
+✅ **AVTOMATIK!** Database server ishga tushganda avtomatik initialize bo'ladi!
 
-1. Backend service sahifasida **Shell** tabga o'ting
-2. Quyidagi commandani run qiling:
-```bash
-npm run db:init
+**Deploy tugagach:**
+
+1. **Logs** tabni oching (Render dashboard → Service → Logs)
+2. Quyidagi xabarlarni kutib turing:
+   ```
+   ✅ Connected to PostgreSQL database
+   🔄 Checking database tables...
+   ✅ Database tables ready!
+   ```
+
+**Agar xatolik bo'lsa (manual init kerak):**
+
+Browser ochib quyidagi URL ga kiring:
 ```
-3. "Database initialized successfully!" xabarini kutib turing
+https://your-backend.onrender.com/api/init-db
+```
+
+Ko'rinishi kerak:
+```json
+{
+  "success": true,
+  "message": "✅ Database initialized successfully!"
+}
+```
+
+**Eslatma:**
+- ✅ Free plan da shell yo'q, shuning uchun avtomatik initialization qilindi!
+- ✅ Browser orqali manual init qilish mumkin
+- ✅ Har safar server restart bo'lganda avtomatik check qilinadi
 
 ### 3. Backend URL ni copy qiling
 
