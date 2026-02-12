@@ -1,0 +1,199 @@
+.game-container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.game-id {
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: var(--bg-lighter);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.game-content {
+  padding: 40px;
+}
+
+.players-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.player-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: var(--bg-light);
+  border-radius: 15px;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.player-card.active {
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.player-card.winner {
+  border-color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.player-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.x-player {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+.o-player {
+  background: linear-gradient(135deg, var(--secondary-color), #db2777);
+}
+
+.player-details {
+  flex: 1;
+}
+
+.player-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.player-symbol {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.vs-divider {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-muted);
+  padding: 10px 15px;
+  background: var(--bg-lighter);
+  border-radius: 10px;
+}
+
+.game-status {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.status-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--bg-lighter);
+  border: 2px solid transparent;
+}
+
+.status-message.win {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: var(--success);
+  color: var(--success);
+  animation: celebrate 0.5s ease-in-out;
+}
+
+.status-message.lose {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.status-message.draw {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.status-icon {
+  font-size: 28px;
+}
+
+.game-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .game-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .game-content {
+    padding: 20px;
+  }
+
+  .players-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .vs-divider {
+    transform: rotate(90deg);
+  }
+
+  .player-card {
+    width: 100%;
+  }
+
+  .status-message {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
